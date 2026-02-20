@@ -1,0 +1,36 @@
+name: Daily TradingView Screenshots
+
+on:
+  schedule:
+    # Runs daily at 09:00 UTC (London is UTC in winter, UTC+1 in summer)
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+jobs:
+  shot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm i playwright
+          npx playwright install --with-deps chromium
+
+      - name: Capture screenshots
+        run: node capture.mjs
+
+      - name: Upload images
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-charts
+          path: out/*.png
