@@ -6,8 +6,8 @@ if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR);
 
 const charts = [
   { name: "gold_xauusd_1h", url: "https://www.tradingview.com/chart/?symbol=OANDA%3AXAUUSD" },
-  { name: "eurusd_1h", url: "PASTE_EURUSD_PUBLIC_URL_HERE" },
-  { name: "gbpusd_1h", url: "PASTE_GBPUSD_PUBLIC_URL_HERE" },
+  { name: "eurusd_1h", url: "Phttps://www.tradingview.com/chart/?symbol=OANDA%3AEURUSD},
+  { name: "gbpusd_1h", url: https://www.tradingview.com/chart/?symbol=OANDA%3AGBPUSD
 ];
 
 // Best-effort chart-area capture (TradingView DOM varies). Falls back to viewport screenshot.
