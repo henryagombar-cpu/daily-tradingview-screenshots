@@ -47,5 +47,5 @@ async function screenshotChart(page, name) {
   }
 
   await browser.close();
-  console.log("Saved screenshots to /out");
+  console.log("Saved screenshots to", OUT_DIR);
 })();
