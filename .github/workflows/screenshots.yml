@@ -34,3 +34,17 @@ jobs:
         with:
           name: daily-charts
           path: out/*.png
+
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Daily TradingView Charts"
+          body: "Please find the daily charts attached"
+          from: ${{ secrets.SMTP_USERNAME }}
+          to: ${{ secrets.EMAIL_TO }}
+          attachments: out/*.png
+          secure: true
